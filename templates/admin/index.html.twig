@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="m-4">
+    <h2>Agences</h2>
+    <a href="/agence/ajouter" class="btn btn-primary mb-2">Ajouter</a>
+    <table class="table table-hover table-bordered text-center">
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Tel Agence</th>
+            <th>Adresse Ville</th>
+            <th>Action</th>
+        </tr>
+        {% for agence in agences %}
+        <tr>
+            <td>{{ agence.id }}</td>
+            <td>{{ agence.nom }}</td>
+            <td>{{ agence.telagence }}</td>
+            <td>{{ agence.adresseville }}</td>
+            <td>
+                <a href="/agence/consulter/{{agence.id}}" class="btn btn-info">Voir</a>
+                <a href="/agence/modifier/{{agence.id}}" class="btn btn-info">Modifier</a>
+                <a href="/agence/supprimer/{{agence.id}}" class="btn btn-info">Supprimer</a>
+            </td>
+        </td>
+        {% endfor %}
+    </table>
+
+    <h2 class="mt-4">Voitures</h2>
+    <a href="" class="btn btn-primary mb-2">Ajouter</a>
+    <table class="table table-hover table-bordered text-center">
+        <tr>
+            <th>Id</th>
+            <th>Marque</th>
+            <th>Couleur</th>
+            <th>Description</th>
+            <th>Nombre Place</th>
+            <th>Nom Agence</th>
+            <th>Action</th>
+        </tr>
+        {% for voiture in voitures %}
+        <tr>
+            <td>{{ voiture.id }}</td>
+            <td>{{ voiture.marque }}</td>
+            <td>{{ voiture.couleur }}</td>
+            <td>{{ voiture.description }}</td>
+            <td>{{ voiture.nbrePLace }}</td>
+            <td>{{ voiture.nomAgence }}</td>
+            <td>
+                <a href="/voiture/modifier/{{voiture.id}}" class="btn btn-info">Modifier</a>
+                <a href="/voiture/supprimer/{{voiture.id}}" class="btn btn-info">Supprimer</a>
+            </td>
+        </td>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
